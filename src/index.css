@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+
+
 :root {
   --bg-color: #050505;
   --text-primary: #ffffff;
@@ -22,6 +29,12 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+
+section {
+  scroll-margin-top: 120px;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', sans-serif;

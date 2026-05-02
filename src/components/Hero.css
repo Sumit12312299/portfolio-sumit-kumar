@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 80px; /* navbar offset */
+  padding-top: 120px; /* navbar offset */
 }
 
 .hero-content {
@@ -33,6 +33,13 @@
   margin-bottom: 1.5rem;
   line-height: 1.1;
 }
+
+.cursor {
+  color: var(--accent-1);
+  font-weight: 400;
+  margin-left: 2px;
+}
+
 
 .bio {
   font-size: 1.2rem;

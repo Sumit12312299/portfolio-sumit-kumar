@@ -8,6 +8,8 @@ import Certificates from './components/Certificates';
 import Achievements from './components/Achievements';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
+import BackToTop from './components/BackToTop';
+
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
         <Resume />
         <Contact />
       </main>
+      <BackToTop />
     </div>
+
   );
 }
 

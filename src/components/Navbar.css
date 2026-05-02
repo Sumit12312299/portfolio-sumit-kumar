@@ -86,7 +86,26 @@
   cursor: pointer;
 }
 
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
+
   .navbar {
     padding: 1rem 0;
   }
