@@ -1,0 +1,73 @@
+.certificates-section {
+  padding: 100px 0;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cert-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.cert-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.1);
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.cert-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(138, 43, 226, 0.1));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-1);
+}
+
+.cert-link {
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cert-link:hover {
+  color: #0077b5; /* LinkedIn Color */
+  background: rgba(0, 119, 181, 0.1);
+  transform: translateY(-3px);
+}
+
+.cert-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.cert-issuer {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--accent-2);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.cert-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}

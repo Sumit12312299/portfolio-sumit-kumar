@@ -1,0 +1,92 @@
+.achievements-section {
+  padding: 100px 0;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px;
+  height: 100%;
+  width: 2px;
+  background: var(--card-border);
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  border: 2px solid var(--accent-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-1);
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  margin-left: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+  transform: translateX(5px);
+}
+
+.timeline-date {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--accent-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.timeline-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+  .timeline-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .timeline-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  .timeline-content {
+    margin-left: 1rem;
+    padding: 1rem;
+  }
+}

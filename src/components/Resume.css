@@ -1,0 +1,148 @@
+.resume-section {
+  padding: 100px 0;
+}
+
+.resume-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.2));
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 4rem;
+  gap: 4rem;
+}
+
+.resume-content {
+  flex: 1;
+}
+
+.resume-desc {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.resume-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.resume-preview-card {
+  width: 320px;
+  height: 420px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-doc-header {
+  background: #f1f5f9;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.doc-dots {
+  display: flex;
+  gap: 6px;
+  margin-right: 15px;
+}
+
+.doc-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.doc-dots span:nth-child(1) { background: #ff5f56; }
+.doc-dots span:nth-child(2) { background: #ffbd2e; }
+.doc-dots span:nth-child(3) { background: #27c93f; }
+
+.resume-doc-header p {
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.resume-doc-body {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.doc-line {
+  background: #e2e8f0;
+  height: 8px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.doc-line.title {
+  height: 14px;
+  width: 60%;
+  background: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.doc-line.subtitle {
+  width: 40%;
+  margin-bottom: 1rem;
+}
+
+.doc-line.block {
+  height: 6px;
+}
+
+.doc-line.short {
+  width: 80%;
+}
+
+.doc-line.medium {
+  width: 90%;
+}
+
+.resume-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f1f5f9;
+  opacity: 0.5;
+}
+
+@media (max-width: 992px) {
+  .resume-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+  
+  .resume-desc {
+    margin: 0 auto 2.5rem;
+  }
+  
+  .resume-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-preview-card {
+    width: 100%;
+  }
+  
+  .resume-buttons {
+    flex-direction: column;
+  }
+}

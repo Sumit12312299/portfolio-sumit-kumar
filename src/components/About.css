@@ -1,0 +1,82 @@
+.about-section {
+  padding: 100px 0;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+  color: var(--accent-1);
+}
+
+.sub-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.icon-accent {
+  color: var(--accent-2);
+}
+
+.education-timeline {
+  position: relative;
+  border-left: 2px solid var(--card-border);
+  padding-left: 2.5rem;
+  margin-left: 1rem;
+}
+
+.edu-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.edu-marker {
+  position: absolute;
+  left: -2.5rem;
+  transform: translateX(-1px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  border: 2px solid var(--accent-1);
+  top: 5px;
+}
+
+.edu-date {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--accent-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.edu-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.edu-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
