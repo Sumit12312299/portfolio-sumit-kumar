@@ -5,6 +5,20 @@ import './Projects.css';
 
 const projectsData = [
   {
+    title: 'CinePro',
+    description: 'A premium movie exploration platform featuring real-time data from TMDB API. Includes advanced filtering, search functionality, and a cinematic user interface with fluid animations.',
+    tech: ['React', 'TMDB API', 'Framer Motion', 'Tailwind CSS'],
+    github: 'https://github.com/Sumit12312299/Cinepro',
+    demo: 'https://cinepro-mu.vercel.app/'
+  },
+  {
+    title: 'AI Resume Analyzer',
+    description: 'An AI-powered application that evaluates resumes against job descriptions. Provides ATS scoring, keyword analysis, and personalized suggestions for improvement using Google Gemini AI.',
+    tech: ['React', 'Google Gemini', 'Node.js', 'Lucide React'],
+    github: 'https://github.com/Sumit12312299/AI_resume_Analyser',
+    demo: 'https://airesume-seven.vercel.app/'
+  },
+  {
     title: 'Expenz',
     description: 'A full-stack finance management app that empowers users to monitor and analyze their spending. Features include user authentication, categorized transactions, and an interactive dashboard with Chart.js for a complete overview of income vs expenses.',
     tech: ['React', 'Express', 'MongoDB', 'Chart.js'],

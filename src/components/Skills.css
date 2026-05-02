@@ -54,3 +54,17 @@
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 60px 0;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .skill-card {
+    padding: 1.5rem;
+  }
+}

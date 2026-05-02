@@ -74,6 +74,9 @@
 }
 
 @media (max-width: 768px) {
+  .achievements-section {
+    padding: 60px 0;
+  }
   .timeline::before {
     left: 20px;
   }
@@ -90,3 +93,4 @@
     padding: 1rem;
   }
 }
+

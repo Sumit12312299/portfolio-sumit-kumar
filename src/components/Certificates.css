@@ -71,3 +71,22 @@
   color: var(--text-secondary);
   font-size: 0.95rem;
 }
+@media (max-width: 768px) {
+  .certificates-section {
+    padding: 60px 0;
+  }
+  
+  .cert-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .cert-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+  }
+  
+  .cert-title {
+    font-size: 1.15rem;
+  }
+}

@@ -122,3 +122,20 @@
   border-color: rgba(0, 240, 255, 0.4);
   transform: translateY(-2px);
 }
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.3rem;
+  }
+}
