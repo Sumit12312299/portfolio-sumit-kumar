@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Magnetic from './Magnetic';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -24,9 +25,11 @@ const Navbar = () => {
   return (
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="#home" className="logo">
-          S<span className="accent">.</span>
-        </a>
+        <Magnetic>
+          <a href="#home" className="logo">
+            SKY<span className="accent">.</span>
+          </a>
+        </Magnetic>
 
         <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <a href="#home" onClick={closeMenu}>Home</a>
@@ -36,7 +39,9 @@ const Navbar = () => {
           <a href="#certificates" onClick={closeMenu}>Certificates</a>
           <a href="#achievements" onClick={closeMenu}>Achievements</a>
           <a href="#resume" onClick={closeMenu}>Resume</a>
-          <a href="#contact" className="contact-btn" onClick={closeMenu}>Contact</a>
+          <Magnetic>
+            <a href="#contact" className="contact-btn" onClick={closeMenu}>Contact</a>
+          </Magnetic>
         </div>
 
         <button className="mobile-toggle" onClick={toggleMenu}>

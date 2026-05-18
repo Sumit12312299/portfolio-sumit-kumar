@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import Magnetic from './Magnetic';
 import './Hero.css';
 
 const Hero = () => {
@@ -90,41 +91,49 @@ const Hero = () => {
           className="hero-cta"
           variants={itemVariants}
         >
-          <motion.a 
-            href="#projects" 
-            className="btn btn-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Check out my work
-            <ArrowRight size={20} />
-          </motion.a>
+            <Magnetic>
+              <motion.a 
+                href="#projects" 
+                className="btn btn-primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Check out my work
+                <ArrowRight size={20} />
+              </motion.a>
+            </Magnetic>
           <div className="social-links">
-            <motion.a 
-              href="https://github.com/Sumit12312299" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="social-icon"
-              whileHover={{ y: -5, color: "var(--accent-1)" }}
-            >
-              <Github size={24} />
-            </motion.a>
-            <motion.a 
-              href="https://www.linkedin.com/in/sumit-kumar-t88" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="social-icon"
-              whileHover={{ y: -5, color: "var(--accent-1)" }}
-            >
-              <Linkedin size={24} />
-            </motion.a>
-            <motion.a 
-              href="mailto:sumitkr4364@gmail.com" 
-              className="social-icon"
-              whileHover={{ y: -5, color: "var(--accent-1)" }}
-            >
-              <Mail size={24} />
-            </motion.a>
+            <Magnetic>
+              <motion.a 
+                href="https://github.com/Sumit12312299" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="social-icon"
+                whileHover={{ y: -5, color: "var(--accent-1)" }}
+              >
+                <Github size={24} />
+              </motion.a>
+            </Magnetic>
+            <Magnetic>
+              <motion.a 
+                href="https://www.linkedin.com/in/sumit-kumar-t88" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="social-icon"
+                whileHover={{ y: -5, color: "var(--accent-1)" }}
+              >
+                <Linkedin size={24} />
+              </motion.a>
+            </Magnetic>
+            <Magnetic>
+              <motion.a 
+                href="mailto:sumitkr4364@gmail.com" 
+                className="social-icon"
+                whileHover={{ y: -5, color: "var(--accent-1)" }}
+              >
+                <Mail size={24} />
+              </motion.a>
+            </Magnetic>
           </div>
         </motion.div>
       </motion.div>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, ChevronDown, ChevronUp } from 'lucide-react';
+import TiltCard from './TiltCard';
 import './Projects.css';
 
 const projectsData = [
@@ -44,7 +45,7 @@ const projectsData = [
     description: 'A robust parking management software that streamlines vehicle entry and exit operations, tracks available slots, and calculates fees seamlessly based on duration.',
     tech: ['C++', 'OOP', 'Data Structures'],
     github: 'https://github.com/Sumit12312299/Parking-Management-System',
-    demo: '#'
+    demo: 'https://parking-management-system-lkvt.onrender.com'
   }
 ];
 
@@ -69,38 +70,38 @@ const Projects = () => {
         <motion.div layout className="projects-grid">
           <AnimatePresence>
             {displayedProjects.map((project, index) => (
-              <motion.div 
-                className="project-card" 
+              <motion.div
                 key={project.title}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                whileHover={{ y: -10 }}
               >
-                <div className="project-content">
-                  <div className="project-header">
-                    <h3 className="project-title">{project.title}</h3>
-                    <div className="project-links">
-                      <a href={project.github} className="icon-link"><Github size={20} /></a>
-                      <a href={project.demo} className="icon-link"><ExternalLink size={20} /></a>
+                <TiltCard className="project-card">
+                  <div className="project-content">
+                    <div className="project-header">
+                      <h3 className="project-title">{project.title}</h3>
+                      <div className="project-links">
+                        <a href={project.github} className="icon-link"><Github size={20} /></a>
+                        <a href={project.demo} className="icon-link"><ExternalLink size={20} /></a>
+                      </div>
+                    </div>
+                    <p className="project-description">{project.description}</p>
+                    <div className="project-tech">
+                      {project.tech.map((tech, idx) => (
+                        <span key={idx} className="tech-badge">{tech}</span>
+                      ))}
                     </div>
                   </div>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tech">
-                    {project.tech.map((tech, idx) => (
-                      <span key={idx} className="tech-badge">{tech}</span>
-                    ))}
-                  </div>
-                </div>
+                </TiltCard>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
 
         <motion.div layout className="see-more-container">
-          <button 
+          <button
             className="btn btn-secondary see-more-btn"
             onClick={() => setShowAll(!showAll)}
           >

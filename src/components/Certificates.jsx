@@ -21,6 +21,7 @@ import {
   Layout,
   Linkedin
 } from 'lucide-react';
+import TiltCard from './TiltCard';
 import './Certificates.css';
 
 const certificatesData = [
@@ -272,26 +273,26 @@ const Certificates = () => {
           <AnimatePresence>
             {displayedCerts.map((cert) => (
               <motion.div 
-                className="cert-card"
                 key={cert.title}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                whileHover={{ y: -5 }}
               >
-                <div className="cert-header">
-                  <div className="cert-icon-wrapper">
-                    {cert.icon}
+                <TiltCard className="cert-card">
+                  <div className="cert-header">
+                    <div className="cert-icon-wrapper">
+                      {cert.icon}
+                    </div>
+                    <a href={cert.link} target="_blank" rel="noreferrer" className="cert-link">
+                      <Linkedin size={20} />
+                    </a>
                   </div>
-                  <a href={cert.link} target="_blank" rel="noreferrer" className="cert-link">
-                    <Linkedin size={20} />
-                  </a>
-                </div>
-                <h3 className="cert-title">{cert.title}</h3>
-                <p className="cert-issuer">Issued by {cert.issuer} &bull; {cert.date}</p>
-                <p className="cert-desc">{cert.description}</p>
+                  <h3 className="cert-title">{cert.title}</h3>
+                  <p className="cert-issuer">Issued by {cert.issuer} &bull; {cert.date}</p>
+                  <p className="cert-desc">{cert.description}</p>
+                </TiltCard>
               </motion.div>
             ))}
           </AnimatePresence>
