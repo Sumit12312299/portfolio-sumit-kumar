@@ -10,6 +10,7 @@ import Achievements from './components/Achievements';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import BackToTop from './components/BackToTop';
+import Chatbot from './components/Chatbot';
 
 
 function App() {
@@ -52,9 +53,11 @@ function App() {
         <Contact />
       </main>
       <BackToTop />
+      <Chatbot />
     </div>
 
   );
 }
 
 export default App;
+

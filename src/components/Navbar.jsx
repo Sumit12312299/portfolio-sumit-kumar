@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="container nav-container">
         <Magnetic>
           <a href="#home" className="logo">
-            SKY<span className="accent">.</span>
+            SKY<span className="accent"></span>
           </a>
         </Magnetic>
 
