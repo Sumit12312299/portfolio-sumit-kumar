@@ -124,6 +124,13 @@ const chatbotKnowledge = {
 
   projects: [
     {
+      title: 'PDFCraft',
+      description: 'A privacy-focused, client-side PDF utility suite running entirely in the browser. Enables users to merge, split, compress, and organize PDFs, and convert DOCX, XLSX, or HTML files with zero server uploads.',
+      tech: ['React', 'PDF.js', 'Tailwind CSS', 'Vite'],
+      github: 'https://github.com/Sumit12312299/pdf-craft',
+      demo: 'https://pdf-craft-sand.vercel.app/'
+    },
+    {
       title: 'CinePro',
       description: 'A premium movie exploration platform featuring real-time data from TMDB API with fluid animations.',
       tech: ['React', 'TMDB API', 'Framer Motion', 'Tailwind CSS'],
@@ -138,13 +145,6 @@ const chatbotKnowledge = {
       demo: 'https://airesume-seven.vercel.app/'
     },
     {
-      title: 'Parking Management System',
-      description: 'A robust desktop operations engine for managing vehicle slots, fee structures, and operations.',
-      tech: ['C++', 'OOP', 'Data Structures'],
-      github: 'https://github.com/Sumit12312299/Parking-Management-System',
-      demo: 'https://parking-management-system-lkvt.onrender.com'
-    },
-    {
       title: 'Expenz',
       description: 'A full-stack financial health dashboard tracking income, expenses, and transaction categorization.',
       tech: ['React', 'Express', 'MongoDB', 'Chart.js'],
@@ -157,6 +157,20 @@ const chatbotKnowledge = {
       tech: ['React', 'YouTube API', 'Tailwind CSS'],
       github: '#',
       demo: '#'
+    },
+    {
+      title: 'E-Commerce Platform',
+      description: 'A scalable online shopping platform featuring user authentication, payment gateway integration, and an intuitive admin dashboard for inventory management.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      github: '#',
+      demo: '#'
+    },
+    {
+      title: 'Parking Management System',
+      description: 'A robust parking management software that streamlines vehicle entry and exit operations, tracks available slots, and calculates fees seamlessly based on duration.',
+      tech: ['C++', 'OOP', 'Data Structures'],
+      github: 'https://github.com/Sumit12312299/Parking-Management-System',
+      demo: 'https://parking-management-system-lkvt.onrender.com'
     }
   ],
 
@@ -329,17 +343,20 @@ const Chatbot = () => {
   };
 
   const processQuery = (query) => {
-    const q = query.toLowerCase();
+    const q = query.toLowerCase().trim();
+
+    // Helper functions to check for keyword groups (including Hindi/Hinglish keywords)
+    const matchesAny = (words) => words.some(word => q.includes(word));
 
     // 1. Greet
-    if (q.includes("hi") || q.includes("hello") || q.includes("hey") || q.includes("greetings") || q.includes("hola")) {
+    if (matchesAny(["hi", "hello", "hey", "greetings", "hola", "sup", "yo", "kaise", "namaste", "pranam", "ram ram", "salam"])) {
       return {
         text: "Hello! 😊 How can I help you today? I'm ready to answer any questions about Sumit's web apps, software engineering background, qualifications, or credentials!"
       };
     }
 
     // 2. Resume / CV
-    if (q.includes("resume") || q.includes("cv") || q.includes("download") || q.includes("pdf")) {
+    if (matchesAny(["resume", "cv", "download", "pdf", "biodata", "resume link", "resume dikhao"])) {
       return {
         text: "You can download Sumit's official resume using the button below or preview it directly in Google Drive:",
         type: 'resume',
@@ -347,34 +364,36 @@ const Chatbot = () => {
       };
     }
 
-    // 3. Projects
-    if (q.includes("project") || q.includes("portfolio") || q.includes("work") || q.includes("apps") || q.includes("built")) {
-      // Specific projects search
-      if (q.includes("cinepro")) {
-        const p = chatbotKnowledge.projects[0];
-        return {
-          text: `🎥 **${p.title}** is a premium movie discovery platform. It retrieves live movie metadata, ratings, and trailers from TMDB API in real-time. Features fluid page animations and beautiful search queries.`,
-          type: 'single_project',
-          data: p
-        };
-      }
-      if (q.includes("resume") || q.includes("analyzer") || q.includes("gemini")) {
-        const p = chatbotKnowledge.projects[1];
-        return {
-          text: `🤖 **${p.title}** is an intelligent full-stack ATS evaluation system. Using the Google Gemini LLM API, it scans user uploaded resumes against detailed job requirements, delivering accurate scoring and suggestions.`,
-          type: 'single_project',
-          data: p
-        };
-      }
-      if (q.includes("parking") || q.includes("c++")) {
-        const p = chatbotKnowledge.projects[2];
-        return {
-          text: `🚗 **${p.title}** is a fully functional desktop management utility designed to track vehicle lots, calculate smart hourly rates, and optimize entry/exit routines.`,
-          type: 'single_project',
-          data: p
-        };
-      }
+    // Check if query is about projects
+    const isProjectRelated = matchesAny(["project", "portfolio", "work", "apps", "built", "create", "make", "banaye", "kam kiya", "experience", "website", "system"]);
 
+    // Dynamic specific projects search first
+    const matchedProj = chatbotKnowledge.projects.find(p => {
+      const normalizedTitle = p.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const normalizedQuery = q.replace(/[^a-z0-9]/g, '');
+      return normalizedQuery.includes(normalizedTitle) || q.includes(p.title.toLowerCase());
+    });
+
+    if (matchedProj) {
+      let prefix = "💻";
+      const titleLower = matchedProj.title.toLowerCase();
+      if (titleLower.includes("cinepro")) prefix = "🎥";
+      else if (titleLower.includes("resume") || titleLower.includes("analyzer")) prefix = "🤖";
+      else if (titleLower.includes("parking")) prefix = "🚗";
+      else if (titleLower.includes("pdf") || titleLower.includes("craft")) prefix = "📄";
+      else if (titleLower.includes("expenz") || titleLower.includes("finance")) prefix = "💰";
+      else if (titleLower.includes("tuba") || titleLower.includes("video")) prefix = "📺";
+      else if (titleLower.includes("commerce") || titleLower.includes("shop")) prefix = "🛒";
+
+      return {
+        text: `${prefix} **${matchedProj.title}** - ${matchedProj.description}\n\n**Tech Stack:** ${matchedProj.tech.join(', ')}`,
+        type: 'single_project',
+        data: matchedProj
+      };
+    }
+
+    // 3. General Projects
+    if (isProjectRelated) {
       return {
         text: "Here are some of Sumit's premium full-stack and software projects. Tap the links to browse their live builds or view their GitHub codebases:",
         type: 'projects',
@@ -383,7 +402,7 @@ const Chatbot = () => {
     }
 
     // 4. Skills / Technologies
-    if (q.includes("skill") || q.includes("tech") || q.includes("stack") || q.includes("language") || q.includes("code") || q.includes("framework")) {
+    if (matchesAny(["skill", "tech", "stack", "language", "code", "framework", "python", "java", "c++", "javascript", "react", "programming", "know", "aata hai"])) {
       return {
         text: "Sumit boasts a rich engineering stack ranging from low-level systems languages to advanced microservice frameworks:",
         type: 'skills',
@@ -392,7 +411,7 @@ const Chatbot = () => {
     }
 
     // 5. Education
-    if (q.includes("education") || q.includes("college") || q.includes("lpu") || q.includes("university") || q.includes("study") || q.includes("school")) {
+    if (matchesAny(["education", "college", "lpu", "university", "study", "school", "degree", "padhai", "qualification", "btech", "b.tech"])) {
       return {
         text: "Here is Sumit's academic timeline. He is currently pursuing a full-time Bachelor of Technology (B.Tech) in Punjab:",
         type: 'education',
@@ -401,7 +420,7 @@ const Chatbot = () => {
     }
 
     // 6. Achievements
-    if (q.includes("achieve") || q.includes("streak") || q.includes("leetcode") || q.includes("dean") || q.includes("hackathon") || q.includes("trophy") || q.includes("won")) {
+    if (matchesAny(["achieve", "streak", "leetcode", "dean", "hackathon", "trophy", "won", "award", "rank", "success"])) {
       return {
         text: "Sumit regularly participates in coding challenges and maintains exceptional academic and practical standards. Here are some of his key highlights:",
         type: 'achievements',
@@ -410,7 +429,7 @@ const Chatbot = () => {
     }
 
     // 7. Certifications
-    if (q.includes("cert") || q.includes("nptel") || q.includes("infosys") || q.includes("credential")) {
+    if (matchesAny(["cert", "nptel", "infosys", "credential", "certificate", "license"])) {
       return {
         text: "Sumit holds over **28 professional credentials** validating his expertise in modern engineering fields. Key certifications include:\n\n" +
           "• **API Test Automation with SoapUI** (LinkedIn Certification - Feb 2026)\n" +
@@ -426,7 +445,7 @@ const Chatbot = () => {
     }
 
     // 8. Contact / Message / Hire
-    if (q.includes("contact") || q.includes("hire") || q.includes("email") || q.includes("phone") || q.includes("message") || q.includes("social") || q.includes("number")) {
+    if (matchesAny(["contact", "hire", "email", "phone", "message", "social", "number", "call", "milna", "baat", "connect", "reach"])) {
       return {
         text: "You can reach out to Sumit directly, or drop a quick note right here in this chat bubble! Here are his contact details:",
         type: 'contact',
@@ -435,14 +454,14 @@ const Chatbot = () => {
     }
 
     // 9. About Sumit
-    if (q.includes("about") || q.includes("who is") || q.includes("sumit") || q.includes("background") || q.includes("who are you")) {
+    if (matchesAny(["about", "who is", "sumit", "background", "who are you", "introduce", "intro", "kaun hai", "kon hai"])) {
       return {
         text: chatbotKnowledge.about
       };
     }
 
     // 10. Help / Guide
-    if (q.includes("help") || q.includes("ask") || q.includes("what can you do") || q.includes("queries")) {
+    if (matchesAny(["help", "ask", "what can you do", "queries"])) {
       return {
         text: "I'm fully trained on Sumit's professional history! You can ask me questions like:\n\n• *'What are your top projects?'*\n• *'Show me your technical skills'* \n• *'Tell me about your education at LPU'*\n• *'What certifications do you have?'*\n• *'Can I download your resume?'*\n• *'How can I get in touch with you?'*"
       };
