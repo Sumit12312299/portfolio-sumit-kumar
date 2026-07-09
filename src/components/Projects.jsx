@@ -6,6 +6,13 @@ import './Projects.css';
 
 const projectsData = [
   {
+    title: 'PDFCraft',
+    description: 'A privacy-focused, client-side PDF utility suite running entirely in the browser. Enables users to merge, split, compress, and organize PDFs, and convert DOCX, XLSX, or HTML files with zero server uploads.',
+    tech: ['React', 'PDF.js', 'Tailwind CSS', 'Vite'],
+    github: 'https://github.com/Sumit12312299/pdf-craft',
+    demo: 'https://pdf-craft-sand.vercel.app/'
+  },
+  {
     title: 'CinePro',
     description: 'A premium movie exploration platform featuring real-time data from TMDB API. Includes advanced filtering, search functionality, and a cinematic user interface with fluid animations.',
     tech: ['React', 'TMDB API', 'Framer Motion', 'Tailwind CSS'],
